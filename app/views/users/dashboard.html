@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<meta name = "description" content = "The User Dashboard displays information for all the users.">
+		<title>User Dashboard</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+	</head>
+	<body>
+
+		<nav class = 'navbar navbar-default'>
+			<div class = 'container-fluid'>
+				<div class = 'navbar-header'>
+					<a class = 'navbar-brand' href = "/dashboard">WombatDash</a>
+				</div>
+				<ul class = 'nav navbar-nav'>
+					<li class = 'active'><a href = '/dashboard'>Dashboard</a></li>
+					<li><a href = '/users/edit'>Profile</a></li>
+				</ul>
+				<ul class = 'nav navbar-nav navbar-right'>
+					<li><a href="/signoff">Sign Off</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class = 'container'>
+			<h2>All Users</h2>
+			<table class = 'table table-bordered table-striped'>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Created At</th>
+						<th>User Level</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+						<tr>
+							<td>{{user['id']}}</td>
+							<td><a href = "/users/show/{{user['id']}}">{{user['first_name']}} {{user['last_name']}}</a></td>
+							<td>{{user['email']}}</td>
+							<td>{{user['created_at']}}</td>
+							<td>{{user['user_level']}}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div> 
+	</body>
+</html>

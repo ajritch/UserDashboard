@@ -16,7 +16,25 @@ from system.core.router import routes
     named id the automatically generated url would be '/products/add/<id>'
     The automatically generated routes respond to all of the http verbs (GET, POST, PUT, PATCH, DELETE)
 """
-routes['default_controller'] = 'Welcome'
+routes['default_controller'] = 'Users'
+routes['GET']['/signin'] = 'Users#signin'
+routes['GET']['/register'] = 'Users#register'
+routes['POST']['/add_user'] = 'Users#add_user'
+routes['GET']['/dashboard'] = 'Users#dashboard'
+routes['GET']['/dashboard/admin'] = 'Users#dashboard_admin'
+routes['POST']['/do_signin'] = 'Users#do_signin'
+routes['GET']['/signoff'] = 'Users#signoff'
+routes['GET']['/users/new'] = 'Users#new'
+routes['GET']['/users/edit'] = 'Users#edit'
+routes['POST']['/users/self_update'] = 'Users#self_update'
+routes['GET']['/users/edit/<int:id>'] = 'Users#edit_user'
+routes['POST']['/users/admin_update/<int:id>'] = 'Users#admin_update'
+routes['GET']['/users/show/<int:id>'] = 'Users#show'
+routes['POST']['/users/message/<int:id>'] = 'Users#message'
+routes['POST']['/users/comment/<int:user_id>/<int:message_id>'] = 'Users#comment'
+routes['GET']['/users/delete/<int:id>'] = 'Users#delete'
+
+
 """
     You can add routes and specify their handlers as follows:
 

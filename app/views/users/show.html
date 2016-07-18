@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+	<head>
+		<meta charset = "UTF-8">
+		<meta name = 'description' content = 'This page displays user information and messages to that user.'>
+		<title>User Information</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+
+		<nav class = 'navbar navbar-default'>
+			<div class = 'container-fluid'>
+				<div class = 'navbar-header'>
+					<a class = 'navbar-brand' href = "/dashboard">WombatDash</a>
+				</div>
+				<ul class = 'nav navbar-nav'>
+					<li><a href = '/dashboard'>Dashboard</a></li>
+					<li><a href = '/users/edit'>Profile</a></li>
+				</ul>
+				<ul class = 'nav navbar-nav navbar-right'>
+					<li><a href="/signoff">Sign Off</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class = 'container'>
+			<h2>{{user['first_name']}} {{user['last_name']}}</h2>
+			<p>Registered At: {{user['created_at']}}</p>
+			<p>User ID: {{user['id']}}</p>
+			<p>Email Address: {{user['email']}}</p>
+			{% if not user['description'] == None %}
+				<p>Description: {{user['description']}}</p>
+			{% endif %}
+			<br>
+
+			<form action = "/users/message/{{user['id']}}" method = 'post' class = 'row container-fluid'>
+				<label>Leave a message for {{user['first_name']}}:</label>
+				<input class = 'form-control' type = 'textarea' name = 'message' required>
+				<br>
+				<input class = 'btn btn-success pull-right' type = 'submit' value = 'Post'>
+			</form>
+
+			{% if messages %}
+				{% for message in messages %}
+					<span><a href = "/users/show/{{message['from_user_id']}}">{{message['first_name']}} {{message['last_name']}}</a> wrote:</span>
+					<span class = 'text-right'>{{message['created_at']}}</span>
+					<p>{{message['content']}}</p>
+
+					<div class = 'container'>
+					{% for comment in comments %}
+						<span><a href = "/users/show/{{message['from_user_id']}}">{{message['first_name']}} {{message['last_name']}}</a> wrote:</span>
+						<span class = 'text_right'>{{comment['created_at']}}</span>
+						<p>{{comment['content']}}</p>
+
+					{% endfor %}
+					<form action = "/users/comment/{{user['id']}}/{{message['id']}}" method = 'post' class = 'row container-fluid'>
+						<input class = 'form-control' type = 'textarea' name = 'comment' placeholder = 'write a message' required>
+						<br>
+						<input class = 'btn btn-success pull-right' type = 'submit' value = 'Post'>
+					</form>
+					</div>
+				{% endfor %}
+			{% endif %}
+
+			
+		</div>
+	</body>
+</html>
