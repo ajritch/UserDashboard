@@ -45,7 +45,6 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,'hello','2016-07-18 06:08:50',NULL,3,6),(2,'Oh, another comment','2016-07-18 07:34:23',NULL,2,6),(3,'This is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long commentThis is a long comment','2016-07-18 07:36:51',NULL,2,6),(4,'I love writing messages to myself','2016-07-18 08:31:30',NULL,5,6);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,7 +76,6 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (1,'lkljlkjlk','2016-07-17 19:30:04',NULL,9,6),(2,'llkjlkjljlkjllkjHET','2016-07-17 19:45:54',NULL,9,6),(3,'Hey there','2016-07-17 21:22:16',NULL,9,6),(4,'Hello, Danny!','2016-07-18 07:38:53',NULL,8,6),(5,'Hi, Annie!','2016-07-18 08:31:20',NULL,6,6);
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +106,6 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (6,'Annie','Ritch','aritch@caltech.edu','$2b$12$ZLZJIyXpdVe9MYOK7zy6COsZTGDh8zRu19OC.g7k5WeFlU9oosxxm','admin','I am Annie and I am the ultimate admin. Ha!','2016-07-16 14:26:36','2016-07-16 14:26:36'),(7,'Bobby','Bob','bob@bob.com','$2b$12$LuObE8V9dQ34ao8H6OsYRepbZfh1/IDUsoG4GmRroPJ.tDpZxJSxu','normal',NULL,'2016-07-16 14:27:17','2016-07-16 14:27:17'),(8,'Danny','Something','dan@something.com','$2b$12$e0WWA/idhsBanln0e/RL4.Q5sdOxeB3ZpT1R3h0lwGCJvb7SMAizG','normal','Hey I\'m Danny! I\'m super awesome!','2016-07-16 16:33:38','2016-07-16 16:33:38'),(9,'Andrea','Ritch','aritch@stanford.edu','$2b$12$80yMAqCsMOq3tDYJqiUY9eySXnfUZoy7OtOCc8VV5u8I8hmPG0ZBm','normal',NULL,'2016-07-16 16:45:28','2016-07-16 16:45:28');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -121,4 +118,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-07-20 11:45:37
+-- Dump completed on 2016-07-20 13:08:29
